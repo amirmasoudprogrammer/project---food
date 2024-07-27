@@ -11,7 +11,7 @@ function Index({data}) {
 export default Index;
 
 export async function getStaticProps() {
-    const respons = await fetch(`${process.env.BASE_URL}/data`)
+    const respons = await fetch("https://api-food-teal.vercel.app/data")
     const data = await respons.json()
     console.log(data)
     return{

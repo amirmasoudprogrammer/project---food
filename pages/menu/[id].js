@@ -17,7 +17,7 @@ function Details({data}) {
 export default Details;
 
 export async function getStaticPaths() {
-    const respo = await fetch("http://localhost:4000/data")
+    const respo = await fetch("https://api-food-teal.vercel.app/data")
     const data = await respo.json();
     const DataSlice = data.slice(0, 10)
     const paths = DataSlice.map(food => ({
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const {params} = context;
-    const respo = await fetch(`${process.env.BASE_URL}/data/${params.id}`)
+    const respo = await fetch(`https://api-food-teal.vercel.app/data/${params.id}`)
     const data = await respo.json();
 
     if (!data.id) {

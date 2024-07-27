@@ -13,7 +13,7 @@ export default categories;
 export async function getServerSideProps(context) {
     const {query :{difficulty , time}} = context
 
-    const res = await fetch(`${process.env.BASE_URL}/data`)
+    const res = await fetch("https://api-food-teal.vercel.app/data")
     const data = await res.json()
 
     const filterData= data.filter((items) => {
